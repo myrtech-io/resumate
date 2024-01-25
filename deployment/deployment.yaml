@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: resumebuilder
+    env: dev
+  name: resumebuilder
+  namespace: dev-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resumebuilder
+  template:
+    metadata:
+      labels:
+        app: resumebuilder
+    spec:
+      containers:
+      - image: itisdeep/resumebuilder:v1
+        name: resumebuilder
